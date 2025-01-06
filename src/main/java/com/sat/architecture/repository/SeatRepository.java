@@ -15,6 +15,6 @@ import jakarta.persistence.LockModeType;
 @Repository
 public interface SeatRepository extends JpaRepository<Seat,Long> {
     @Lock(LockModeType.PESSIMISTIC_WRITE)
-    @Query("SELECT s FROM Seat s WHERE s.id = :seatId AND s.isAvailable = true")
+    @Query("SELECT s FROM Seat s WHERE s.Id = :seatId AND s.isAvail = true")
     Optional<Seat> findAndLockAvailableSeat(@Param("seatId")Long seatId);
 }
